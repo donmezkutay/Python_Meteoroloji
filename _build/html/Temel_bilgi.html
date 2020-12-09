@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel Bilgiler &#8212; Python For Meteorology</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Koşullu İfadeler ve Döngüler" href="Kosullu_dongu.html" />
+    <link rel="prev" title="Hoşgeldiniz" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/python.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python For Meteorology</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Hoşgeldiniz
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Giriş
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Temel Bilgiler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Kosullu_dongu.html">
+   Koşullu İfadeler ve Döngüler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fonksiyon.html">
+   Fonksiyonlar
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Temel_bilgi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Temel_bilgi.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comment-satiri">
+   Comment Satırı
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aritmetik-islemler">
+   Aritmetik İşlemler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#veri-turleri">
+   Veri Türleri
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-degiskenler">
+   Python Değişkenler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#degisken-isimlerinde-dikkat-edilmesi-gerekenler">
+     Değişken isimlerinde dikkat edilmesi gerekenler
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#format-metodu">
+   Format Metodu
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kacis-dizileri">
+   Kaçış Dizileri
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tur-donusumleri">
+   Tür Dönüşümleri
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mantiksal-operatorler">
+   Mantıksal Operatörler
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="temel-bilgiler">
+<h1>Temel Bilgiler<a class="headerlink" href="#temel-bilgiler" title="Permalink to this headline">¶</a></h1>
+<p>Merhaba arkadaşlar jupyter notebook’umuzu açtık ve python temellerine bir giriş yapacağız…</p>
+<p>Jupyter Notebook python kod yazımı için kolay ve hızlı bir ortam..</p>
+<p>İlk olarak Python temellerini anlatacağız ve yavaşça Meteoroloji ile ilgili kısımlara ilerleyeceğiz.</p>
+<div class="section" id="comment-satiri">
+<h2>Comment Satırı<a class="headerlink" href="#comment-satiri" title="Permalink to this headline">¶</a></h2>
+<p>Şimdi İsterseniz <strong>COMMENT</strong> İLE BAŞLAYALIM.</p>
+<p>Bu işaret ,program’ı çalıştırdığımızda program’ın bu satırları es geçerek okumamasını sağlayacak. Böylelikle biz kodlarımızı yazarken daha sonra hatırlamamız için bu şekilde NOTLAR alacağız…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merhaba şu an bu kod&#39;u python işlemiyor</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aritmetik-islemler">
+<h2>Aritmetik İşlemler<a class="headerlink" href="#aritmetik-islemler" title="Permalink to this headline">¶</a></h2>
+<p>Yazdığınız komutu çalıştırmak için SHİFT İLE ENTERA aynı anda basın..!</p>
+<p>Aritmetik işlemlerle başlayalım:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">16</span> <span class="o">+</span> <span class="mi">23</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yukarıda yazdığımız kod’u <strong>print</strong> komutu kullanarak’ta yazdırabiliriz..</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">16</span><span class="o">+</span><span class="mi">23</span><span class="p">)</span> <span class="c1"># toplama işlemi sonucunu yazdırdık</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">28</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># 28&#39;i 7&#39;ye bölüyoruz</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># 2&#39;nin 3&#39;üncü kuvvetini alıyoruz.. 2 ard arda yıldız üssü alma olur</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># 5 ile 10&#39;u çarptık ve yazdırdık.</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">12</span><span class="o">%</span><span class="k">5</span>)  # % işareti kalan bulmada kullanılır 12&#39;nin 5&#39;e bölümünden kalan..
+<span class="nb">print</span><span class="p">(</span><span class="mi">34</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span> <span class="c1">#çıkarma işlemi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+4.0
+8
+50
+2
+22
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="veri-turleri">
+<h2>Veri Türleri<a class="headerlink" href="#veri-turleri" title="Permalink to this headline">¶</a></h2>
+<p>Şimdi data type’larına geçelim..</p>
+<p>Pyhton’da 3 adet temel data type’ımız bulunur.. Bunlar</p>
+<ul class="simple">
+<li><p><strong>INTEGER</strong> , <strong>FLOAT</strong>  , <strong>STRING</strong></p></li>
+</ul>
+<blockquote>
+<div><p>INTEGER tam sayıları ifade eder;
+FLOAT kesirli sayıları ifade eder;
+STRING ise harfler,kelimeler ve cümlelerimizdir..;
+ÖRNEK OLARAK GÖSTERELİM İSTERSENİZ..;</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>   <span class="c1">#15 sayısı tam sayıdır bu yüzden data typeı INTEGER&#39;DIR</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">12.4</span><span class="p">)</span> <span class="c1">#12.4 sayısı kesirlidir bu yüzden data typeı FLOAT&#39;DIR</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Merhaba İTU&#39;</span><span class="p">)</span> <span class="c1"># Burada farkettiyseniz 2 üst nokta arasına cümle yazdık.</span>
+                     <span class="c1"># Burada ki data typemız ise STRING&#39;DIR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+12.4
+Merhaba İTU
+</pre></div>
+</div>
+</div>
+</div>
+<p>15 sayısı tam sayıdır bu yüzden data typeı <strong>INTEGER</strong>’DIR.</p>
+<p>12.4 sayısı kesirlidir bu yüzden data typeı <strong>FLOAT</strong>’DIR.</p>
+<p>‘Merhaba İTU’ ise <strong>STRING</strong>’DIR. Burada farkettiyseniz 2 üst nokta arasına cümle yazdık.</p>
+</div>
+<div class="section" id="python-degiskenler">
+<h2>Python Değişkenler<a class="headerlink" href="#python-degiskenler" title="Permalink to this headline">¶</a></h2>
+<p>Biz bir değişken ismi belirleyerek o değişkene İnteger float veya String atayabiliriz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># INT</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mf">242345.134</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># FLOAT</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;1235.4&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="c1"># STR</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+&lt;class &#39;int&#39;&gt;
+242345.134
+&lt;class &#39;float&#39;&gt;
+1235.4
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="degisken-isimlerinde-dikkat-edilmesi-gerekenler">
+<h3>Değişken isimlerinde dikkat edilmesi gerekenler<a class="headerlink" href="#degisken-isimlerinde-dikkat-edilmesi-gerekenler" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Python Büyük harf ve küçük harf duyarlıdır a ve A değişkeni farklıdır.</p></li>
+<li><p>Değişken adlarının başında rakam bulunamaz mesela : 1sayi  gibi..</p></li>
+<li><p>Değişken adlarında alt çizgi(_) haricinde özel karakter kullanılmaz örn: ilk_sayi = 1</p></li>
+<li><p>Programlama dilinin rezerve kelimeleri değişken adı olarak kullanılmaz örneğin:</p></li>
+</ol>
+<blockquote>
+<div><p>True,False,if,else,return,class,break,continue,and,or gibi..</p>
+</div></blockquote>
+<p>Değişkenlere değer atayalım ve değerini değiştirelim.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ilk_sayi</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># ilk sayıya 6 değerini atadık</span>
+<span class="n">ikinci_sayi</span> <span class="o">=</span> <span class="n">ilk_sayi</span> <span class="o">+</span> <span class="mi">8</span> <span class="c1">#ilk sayıya 8 ekledik</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ikinci_sayi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</div>
+<p>String ile float veya integer’ı arka arkaya ekleyebiliriz mesela:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sayi</span> <span class="o">=</span> <span class="mi">155</span>
+<span class="n">herhangi_string</span> <span class="o">=</span> <span class="s1">&#39;ile polisi arayabilirsiniz&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sayi</span> <span class="p">,</span> <span class="n">herhangi_string</span><span class="p">)</span> <span class="c1"># virgül ile değişkenleri ayırıp yazabiliriz arka arkaya</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;istanbul teknik üni&#39;</span> <span class="p">,</span> <span class="s1">&#39;meteoroloji müh&#39;</span> <span class="p">,</span> <span class="s1">&#39;kontenjanı&#39;</span> <span class="p">,</span> <span class="mi">60</span> <span class="p">,</span> <span class="s1">&#39;kişidir&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>155 ile polisi arayabilirsiniz
+istanbul teknik üni meteoroloji müh kontenjanı 60 kişidir
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="format-metodu">
+<h2>Format Metodu<a class="headerlink" href="#format-metodu" title="Permalink to this headline">¶</a></h2>
+<p>Format methodu ile istediğimiz değişkeni yazdırabiliriz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;kutay&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;berkay&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> ile </span><span class="si">{}</span><span class="s1"> Meteoroloji Müh. öğrencisilerdir..&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kutay ile berkay Meteoroloji Müh. öğrencisilerdir..
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yukarıda <strong>format</strong> methodu ile {} parantezleri arasına format içindeki değişkenleri atadık.</p>
+<p>Bu method bize gerçekten çok lazım olacak ve kolaylık sağlayacak.</p>
+</div>
+<div class="section" id="kacis-dizileri">
+<h2>Kaçış Dizileri<a class="headerlink" href="#kacis-dizileri" title="Permalink to this headline">¶</a></h2>
+<p>Kaçış dizileri denen yapılar var pythonda bunlar bize kolaylık sağlıyorlar.</p>
+<p>örnek olarak <strong>\n</strong> ve <strong>\t</strong> kaçış dizilerini vereceğim bunlardan ilki <strong>\n</strong> bir alt satıra geçmemizi sağlıyor <strong>\t</strong> ise bir tab kadar boşluk bırakmamıza neden oluyor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;İstanbul Teknik Üniversitesi</span><span class="se">\n</span><span class="s1">Meteoroloji Mühendisliği</span><span class="se">\n</span><span class="s1">2.Sınıf</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;İstanbul Teknik Üniversitesi</span><span class="se">\t</span><span class="s1">Meteoroloji Mühendisliği</span><span class="se">\t</span><span class="s1">2.Sınıf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>İstanbul Teknik Üniversitesi
+Meteoroloji Mühendisliği
+2.Sınıf
+
+------------------
+İstanbul Teknik Üniversitesi	Meteoroloji Mühendisliği	2.Sınıf
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tur-donusumleri">
+<h2>Tür Dönüşümleri<a class="headerlink" href="#tur-donusumleri" title="Permalink to this headline">¶</a></h2>
+<p>a değişkeni’ni tanımlayıp değişken türünde değişiklik yapabiliriz. Örnek olarak:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;5&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1">#a&#39;yı integera yani tam sayıya çeviriyoruz</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># a &#39;yı floata yani kesirli sayıya çeviriyoruz</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span>  <span class="n">b</span> <span class="p">,</span> <span class="n">c</span> <span class="p">)</span> <span class="c1"># çıktıda hepsi sayı gibi gözüksede aslına dtypeları farklı</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="c1"># gördüğümüz gibi str,int ve float dtypeları</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 5 5.0
+&lt;class &#39;str&#39;&gt; &lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mantiksal-operatorler">
+<h2>Mantıksal Operatörler<a class="headerlink" href="#mantiksal-operatorler" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saat</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">sicaklik</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">saat</span><span class="o">&gt;</span><span class="mi">16</span> <span class="ow">and</span> <span class="n">sicaklik</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Burada sorguluyoruz saat 16’dan büyük mü? ve sicaklik 40 dereceden küçük mü?</p>
+<p>Eğer her ikiside doğruysa <strong>True</strong> verir her ikiside yanlışsa <strong>False</strong> verir, herhangi biri bile yanlışsa false verir çünkü mantık dersinden bildiğiniz üzere <strong>and</strong> komutunda her koşulu sağlaması gerekir <strong>True</strong> olabilmesi için.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">saat</span><span class="o">&gt;</span><span class="mi">16</span> <span class="ow">or</span> <span class="n">sicaklik</span><span class="o">&lt;</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Burada saorguluyoruz saat 16’dan büyük mü? yada sicaklik 40 dereceden küçük mü?</p>
+<p>Burada sonucun <strong>True</strong> olabilmesi için koşullardan birisinin doğru olması yeterlidir. Mantık derslerinden hatırlarsanız eğer <strong>or</strong> ifadesinde sadece her koşul yanlış ise <strong>False</strong> cevabı görürüz.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Hoşgeldiniz</a>
+    <a class='right-next' id="next-link" href="Kosullu_dongu.html" title="next page">Koşullu İfadeler ve Döngüler</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Kutay & Berkay Dönmez<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

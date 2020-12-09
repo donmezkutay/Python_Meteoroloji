@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koşullu İfadeler ve Döngüler &#8212; Python For Meteorology</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fonksiyonlar" href="Fonksiyon.html" />
+    <link rel="prev" title="Temel Bilgiler" href="Temel_bilgi.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/python.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python For Meteorology</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Hoşgeldiniz
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Python Temelleri
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Temel_bilgi.html">
+   Temel Bilgiler
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Koşullu İfadeler ve Döngüler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fonksiyon.html">
+   Fonksiyonlar
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Xarray İle Meteorolojik Veri
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python_xarray/xarray_giris.html">
+   Xarray - Meteorolojik Veri
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python_xarray/xarray_gorsel.html">
+   NetCDF Veri Görselleştirme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Python_xarray/xarray_wrf.html">
+   WRF-Topografik Domain
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Python_temel/Kosullu_dongu.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Python_temel/Kosullu_dongu.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-kosullu-ifadeler">
+   İf Koşullu İfadeler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#donguler">
+   Döngüler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-dongusu">
+     While Döngüsü
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-dongusu">
+     For Döngüsü
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-dongusu-ornegi">
+       For Döngüsü Örneği
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listeler">
+   Listeler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listeye-eleman-atama">
+     Listeye eleman atama
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liste-index-i">
+     Liste İndex’i
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liste-eleman-degistirme">
+     Liste Eleman Değiştirme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liste-birlestirme">
+     Liste Birleştirme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liste-eleman-ekleme">
+     Liste Eleman Ekleme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#liste-eleman-cikarma">
+     Liste Eleman Çıkarma
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="kosullu-ifadeler-ve-donguler">
+<h1>Koşullu İfadeler ve Döngüler<a class="headerlink" href="#kosullu-ifadeler-ve-donguler" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="if-kosullu-ifadeler">
+<h2>İf Koşullu İfadeler<a class="headerlink" href="#if-kosullu-ifadeler" title="Permalink to this headline">¶</a></h2>
+<p>Koşullu ifadelerin kullanımında <strong>if</strong> yazılır, <strong>koşul</strong> yazılır ve satır sonuna <strong>:</strong>  işareti konur entera basılır daha sonra bir <strong>tab</strong> kadar boşluk gidilir ve bu koşulda ne olacağı yazılır.</p>
+<p>Tab boşluğu çok önemlidir çünkü python aksi halde çalışmaz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sicaklik</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="k">if</span> <span class="n">sicaklik</span><span class="o">&gt;</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Çok Sıcak&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Üstteki kod herhangi bir sonuç vermedi çünkü koşulumuz sağlanmadı.</p>
+</div></blockquote>
+<p><strong>Ekstra koşullar sağlayalım..</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sicaklik</span><span class="o">&gt;</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Çok Sıcak&#39;</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="mi">20</span><span class="o">&lt;=</span><span class="n">sicaklik</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Ilık&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>elif</strong> kullanımı ekstra koşuldur eğer if komutu sağlanmazsa elif komutu sorgulanır eğer sicaklik değişkeni 20 ile 25 arasındaysa hava ılık komutu çalışır değilse bir sonraki koşullu ifadeye geçer sıcaklık değişkeni 13 olduğuna göre bu koşulda sağlanamaz ve program devam eder aşağı koşullara doğru sorgulamaya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sicaklik</span><span class="o">&gt;</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Çok Sıcak&#39;</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="mi">20</span><span class="o">&lt;=</span><span class="n">sicaklik</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Ilık&#39;</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="mi">14</span><span class="o">&lt;=</span><span class="n">sicaklik</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava soğumaya yakın&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>else</strong> ise artık tüm koşullar bitmiştir ve hiçbiri sağlanamamıştır o zaman else’in aşağısındaki  komut çalışır</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sicaklik</span><span class="o">&gt;</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Çok Sıcak&#39;</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="mi">20</span><span class="o">&lt;=</span><span class="n">sicaklik</span><span class="o">&lt;=</span><span class="mi">25</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava Ilık&#39;</span><span class="p">)</span>
+    
+<span class="k">elif</span> <span class="mi">14</span><span class="o">&lt;=</span><span class="n">sicaklik</span><span class="o">&lt;</span><span class="mi">20</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava soğumaya yakın&#39;</span><span class="p">)</span>
+    
+<span class="k">else</span><span class="p">:</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hava soğuk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hava soğuk
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="donguler">
+<h2>Döngüler<a class="headerlink" href="#donguler" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="while-dongusu">
+<h3>While Döngüsü<a class="headerlink" href="#while-dongusu" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sayi</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">sayi</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sayi</span><span class="p">)</span>
+    <span class="n">sayi</span> <span class="o">=</span> <span class="n">sayi</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Program devam ediyor.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+Program devam ediyor.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Yukarıdaki işlem şu  şekilde çalışır</strong></p>
+<ol class="simple">
+<li><p>program önce sayi değişkenine 1 değerini atayarak satırı çalıştırır.</p></li>
+<li><p>Program while döngüsü satırına gelerek sayi değişkeninin 10’dan küçük yada eşit olma durumunu kontrol eder.</p></li>
+<li><p>Koşul sağlanıyorsa döngünün içerisine girer ve sayi değişkenini print ile yazdırır.</p></li>
+<li><p>Ardından sayi değişkenini 1 artırır. (sayinin değeri şimdi 2 oldu)</p></li>
+<li><p>program tekrar döngünün başladığı #yere giderek koşulu kontrol eder (sayi = 2 için sayi&lt;=10 kontrol edilir ve True sonuç elde edilir.)</p></li>
+<li><p>Koşul sağlandığı sürece ekrana sayı değişikenini yazıp ,değişkenin değerini artırır ve başa döner.</p></li>
+<li><p>Sayi değişkeni 10 değerine sahipken sayi&lt;=10 koşulu sağlanır ve sayi ekrana yazılır. Ardından sayi değeri 1 artırılarak 11 yapılır. Program tekrar döngünün başına döner.</p></li>
+<li><p>Sayı değeri 11 olduğu için sayi&lt;=10 koşulu sağlamanmaz.Program döngü içine girmeden döngü sonrası ilk satırdan çalışmaya devam eder. print(‘program devam ediyor’) komutu çalışır.</p></li>
+</ol>
+<p>WHİLE DÖNGÜSÜ BU ŞEKİLDEYDİ ŞİMDİ GELELİM <strong>FOR</strong> DÖNGÜSÜNE:</p>
+</div>
+<div class="section" id="for-dongusu">
+<h3>For Döngüsü<a class="headerlink" href="#for-dongusu" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">harfler</span> <span class="o">=</span> <span class="s1">&#39;abcd&#39;</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">harfler</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+d
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yukarıda yaptığımız şey şu. Harfler değişkenini tanımladık ‘abcd’ stringi olarak daha sonra for döngüsüne geldik. Burada for döngüsü <strong>harfler</strong> içindeki her bir elemanı <strong>h</strong> değişkeni ile temsil eder, bu <strong>h</strong>değişkeni ilk harften başlayarak her bir adımda sıradaki harfi alıp döngü içerisine getirmektedir.</p>
+<p><strong>FOR DÖNGÜSÜNÜ ŞU ŞEKİLDEDE TANIMLAYABİLİRİZ:</strong></p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for döngü_değişkeni in üzerinde_dolaşılacak_veri:
+    döngü_içi_işlemler
+</pre></div>
+</div>
+</div></blockquote>
+<p>RANGE FONKSİYONUNUN FOR DÖNGÜSÜNDE KULLANIMINA BAKACAK OLURSAK</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sayi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sayi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Yukarıda sayi değişkeni range ile üretilen <strong>0’dan 9’a kadar olan 10 sayı</strong> üzerinde dolaşıp hepsini sırayla yazıyor print fonksiyonu ile.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sayi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sayi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+12
+16
+20
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>range(a,b,c)</strong> kullanımı şu şekildedir : a’dan b’ye c aralığıyla sayı üret</p>
+<div class="section" id="for-dongusu-ornegi">
+<h4>For Döngüsü Örneği<a class="headerlink" href="#for-dongusu-ornegi" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">karakter</span> <span class="o">=</span> <span class="s1">&#39;çğiöşü&#39;</span>
+<span class="n">kelime</span> <span class="o">=</span> <span class="s1">&#39;yağmur çiselersen şarkı söylüyordu&#39;</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">kelime</span><span class="p">:</span> <span class="c1"># a değişkenini kelime stringi harfleri içinde dolaştırıyoruz</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">karakter</span><span class="p">:</span> <span class="c1">#burada sorguluyor eğer a&#39;nın üzerinde olduğu harf karakter değişkeninde varsa</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="s1">&#39;Türkçe Karakter&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="s1">&#39; &#39;</span><span class="p">:</span> <span class="c1"># burada sorguluyoruz a karakter içinde değilde boşluk karakteriyse boşluk yaz</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Boşluk&#39;</span><span class="p">)</span>
+    
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># geri kalanlarda latin harfleri yaz diyoruz</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;Latin Harfleri&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y Latin Harfleri
+a Latin Harfleri
+ğ Türkçe Karakter
+m Latin Harfleri
+u Latin Harfleri
+r Latin Harfleri
+Boşluk
+ç Türkçe Karakter
+i Türkçe Karakter
+s Latin Harfleri
+e Latin Harfleri
+l Latin Harfleri
+e Latin Harfleri
+r Latin Harfleri
+s Latin Harfleri
+e Latin Harfleri
+n Latin Harfleri
+Boşluk
+ş Türkçe Karakter
+a Latin Harfleri
+r Latin Harfleri
+k Latin Harfleri
+ı Latin Harfleri
+Boşluk
+s Latin Harfleri
+ö Türkçe Karakter
+y Latin Harfleri
+l Latin Harfleri
+ü Türkçe Karakter
+y Latin Harfleri
+o Latin Harfleri
+r Latin Harfleri
+d Latin Harfleri
+u Latin Harfleri
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="listeler">
+<h2>Listeler<a class="headerlink" href="#listeler" title="Permalink to this headline">¶</a></h2>
+<p>ŞİMDİ HIZLI HIZLI LİSTELER’E BAKALIM ve listeler üzerinde döngü işlemi yapalım</p>
+<blockquote>
+<div><p>Pythonda listeler []  ile veya list() ile tanımlanır.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listemiz</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;listemizin uzunluğu&#39;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">listemiz</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># şimdi bu listeyi döngüye sokalım mesela</span>
+<span class="k">for</span> <span class="n">liste_elemani</span> <span class="ow">in</span> <span class="n">listemiz</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">liste_elemani</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>listemizin uzunluğu 4
+
+
+a
+b
+c
+d
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gördüğümüz gibi yukarıda <strong>liste_elemani</strong> değişkeni ‘listemiz’ listesi üzerinde dolaştırılıp liste içerisindeki verilere atandı sırayla ve yazdırıldı print komutuyla.</p>
+<p>Şimdi <strong>i</strong>’nin her dönüşte karesine ulaşalım</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">liste_2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
+400
+900
+1600
+2500
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="listeye-eleman-atama">
+<h3>Listeye eleman atama<a class="headerlink" href="#listeye-eleman-atama" title="Permalink to this headline">¶</a></h3>
+<p>şimdi boş bir listeye kendimiz eleman atayalım</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sayi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">say</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">sayi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">say</span><span class="p">)</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sayi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Burada biz range(10) ile 0’dan 9’a kadar 10 sayı oluşturup say değişkenini bunlar üzerinde döndürdük ve her dönüşte <strong>‘append(say)’</strong> methodu ile sayi isimli liste değişkenimize bu sayıyı atadık.</p>
+</div>
+<div class="section" id="liste-index-i">
+<h3>Liste İndex’i<a class="headerlink" href="#liste-index-i" title="Permalink to this headline">¶</a></h3>
+<p>Python’da liste içindeki her bir değişkene bir <strong>index</strong> değeri atanır. Aşağıda örnek ile göstermek gerekirse:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">index_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">index_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">index_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">index_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>2 sayısının index’i 0’dır</p>
+<p>3 sayısının index’i 1’dir</p>
+<p>4 sayısının index’İ 2’dir</p>
+<p>5 sayısının index’i 3’tür</p>
+<p>Yukarıda gördüğümüz gibi python listelerinde ilk eleman hep <strong>0</strong> indexini alır ve geri kalan elemanlar 0’dan itibaren sırayla aritmetik olarak index değerlerini alırlar.</p>
+<p>Bir örnek daha yapalım.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string_liste</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;arı&#39;</span><span class="p">,</span><span class="s1">&#39;fil&#39;</span><span class="p">,</span><span class="s1">&#39;leopar&#39;</span><span class="p">,</span><span class="s1">&#39;horoz&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">string_liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">string_liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">string_liste</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">string_liste</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arı
+fil
+leopar
+horoz
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="liste-eleman-degistirme">
+<h3>Liste Eleman Değiştirme<a class="headerlink" href="#liste-eleman-degistirme" title="Permalink to this headline">¶</a></h3>
+<p>Listenin 0. indexini yani arı’yı yunus ile değiştirdik, bakalım:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string_liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;yunus&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_liste</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;yunus&#39;, &#39;fil&#39;, &#39;leopar&#39;, &#39;horoz&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="liste-birlestirme">
+<h3>Liste Birleştirme<a class="headerlink" href="#liste-birlestirme" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">liste2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="n">liste3</span> <span class="o">=</span> <span class="n">liste1</span> <span class="o">+</span> <span class="n">liste2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="liste-eleman-ekleme">
+<h3>Liste Eleman Ekleme<a class="headerlink" href="#liste-eleman-ekleme" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste3</span> <span class="o">=</span> <span class="n">liste3</span>  <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="liste-eleman-cikarma">
+<h3>Liste Eleman Çıkarma<a class="headerlink" href="#liste-eleman-cikarma" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_son</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+
+<span class="n">liste_son</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste_son</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 30]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mesela yukarıdaki listenin en büyük ve en küçük elemanlarını bulalım:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_list</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">liste_son</span><span class="p">)</span>
+<span class="n">min_list</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">liste_son</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;maximum eleman&#39;</span> <span class="p">,</span> <span class="n">max_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;minimum eleman&#39;</span> <span class="p">,</span> <span class="n">min_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maximum eleman 30
+minimum eleman 10
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Python_temel"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Temel_bilgi.html" title="previous page">Temel Bilgiler</a>
+    <a class='right-next' id="next-link" href="Fonksiyon.html" title="next page">Fonksiyonlar</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Kutay & Berkay Dönmez<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

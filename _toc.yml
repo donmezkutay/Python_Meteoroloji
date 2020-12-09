@@ -1,0 +1,16 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+
+- part: Python Temelleri
+  chapters:
+    - file: Python_temel/Temel_bilgi
+    - file: Python_temel/Kosullu_dongu 
+    - file: Python_temel/Fonksiyon
+
+- part: Xarray İle Meteorolojik Veri
+  chapters:
+    - file: Python_xarray/xarray_giris
+    - file: Python_xarray/xarray_gorsel 
+    - file: Python_xarray/xarray_wrf
